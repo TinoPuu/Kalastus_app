@@ -7,16 +7,47 @@
     tools:context=".ThirdFragment">
 
     <TextView
-        android:id="@+id/tvThirdFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kalavale"
-        android:textSize="30sp"
+        android:id="@+id/tvKalavale"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="20dp"
+        android:text="TÄSSÄ NÄKYISI KALASTUSVALHE"
+        app:layout_constraintBottom_toTopOf="@+id/btnKalavale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnKalavale"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="Kerro kalavale"
+        app:layout_constraintBottom_toTopOf="@+id/tvKalavitsi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvKalavitsi"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="20dp"
+        android:text="TÄSSÄ NÄKYISI KALASTUS VITSI"
+        app:layout_constraintBottom_toTopOf="@+id/btnKalavitsi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnKalavitsi"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="Kerro kalavitsi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

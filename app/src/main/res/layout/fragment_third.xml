@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/tvKalavale"
-        android:layout_width="350dp"
-        android:layout_height="250dp"
+        android:layout_width="380dp"
+        android:layout_height="215dp"
         android:layout_marginBottom="20dp"
-        android:text="TÄSSÄ NÄKYISI KALASTUSVALHE"
+        android:text="TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE "
         app:layout_constraintBottom_toTopOf="@+id/btnKalavale"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/btnKalavale"
-        android:layout_width="350dp"
+        android:layout_width="380dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
         android:text="Kerro kalavale"
@@ -30,8 +30,8 @@
 
     <TextView
         android:id="@+id/tvKalavitsi"
-        android:layout_width="350dp"
-        android:layout_height="250dp"
+        android:layout_width="380dp"
+        android:layout_height="215dp"
         android:layout_marginBottom="20dp"
         android:text="TÄSSÄ NÄKYISI KALASTUS VITSI"
         app:layout_constraintBottom_toTopOf="@+id/btnKalavitsi"
@@ -40,7 +40,7 @@
 
     <Button
         android:id="@+id/btnKalavitsi"
-        android:layout_width="350dp"
+        android:layout_width="380dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
         android:text="Kerro kalavitsi"

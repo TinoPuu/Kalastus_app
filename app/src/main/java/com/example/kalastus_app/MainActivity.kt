@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val firstFragment = FirstFragment()
         val secondFragment = SecondFragment()
+        val thirdFragment = ThirdFragment()
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment, firstFragment)
@@ -22,6 +23,33 @@ class MainActivity : AppCompatActivity() {
         }
 
         "btnFragment1.setOnClickListener{}"
+
+        val btnKalavalikko: Button = findViewById(R.id.btnFragment1)
+
+        btnKalavalikko.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.flFragment, firstFragment)
+                commit()
+            }
+        }
+
+        val btnKalaennatys: Button = findViewById(R.id.btnFragment2)
+
+        btnKalaennatys.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.flFragment, secondFragment)
+                commit()
+            }
+        }
+
+        val btnKalavale: Button = findViewById(R.id.btnFragment3)
+
+        btnKalavale.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.flFragment, thirdFragment)
+                commit()
+            }
+        }
 
 
 

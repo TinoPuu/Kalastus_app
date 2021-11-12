@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
         //asdasdasdasdasdasdasd
         //asdjaopisdjpioasdjaåpsodjoå
         //tässä testi :DDD
+        //Tinon testi pogo pogo pogo
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

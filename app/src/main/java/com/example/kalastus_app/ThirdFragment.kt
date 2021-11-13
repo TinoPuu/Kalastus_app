@@ -15,9 +15,22 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import org.w3c.dom.Text
 
-class ThirdFragment : Fragment(R.layout.fragment_third) {
-    //Firebase yhteys
-    val db = Firebase.firestore
+class ThirdFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_third, container,false)
+        val btnTakaisin : Button = view.findViewById(R.id.buttonTakaisinKalavale)
+        btnTakaisin.setOnClickListener {
+            val fragment = FourthFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.flFragment,fragment)?.commit()
+        }
+        return view
+    }
 
 
 

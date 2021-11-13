@@ -18,6 +18,10 @@ import org.w3c.dom.Element
 import org.w3c.dom.Text
 import java.util.*
 import kotlin.random.Random
+import android.text.method.ScrollingMovementMethod
+
+
+
 
 class ThirdFragment : Fragment() {
 
@@ -49,8 +53,8 @@ class ThirdFragment : Fragment() {
                     tvKalavitsi.text = "error"
 
                 }
+            tvKalavitsi.setMovementMethod(ScrollingMovementMethod())
         }
-
 
         btnTakaisin.setOnClickListener {
             val fragment = FourthFragment()

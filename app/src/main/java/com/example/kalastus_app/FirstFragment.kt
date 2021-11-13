@@ -5,7 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-class FirstFragment : Fragment(R.layout.fragment_first) {
+import android.widget.Button
+
+class FirstFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_first, container,false)
+        val btnTakaisin : Button = view.findViewById(R.id.buttonTakaisinKalavalikko)
+        btnTakaisin.setOnClickListener {
+            val fragment = FourthFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.flFragment,fragment)?.commit()
+        }
+      return view
+    }
 
 
 }

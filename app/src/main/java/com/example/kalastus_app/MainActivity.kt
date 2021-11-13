@@ -17,9 +17,10 @@ class MainActivity : AppCompatActivity() {
         val firstFragment = FirstFragment()
         val secondFragment = SecondFragment()
         val thirdFragment = ThirdFragment()
+        val fourthFragment = FourthFragment()
 
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, firstFragment)
+            replace(R.id.flFragment, fourthFragment)
             commit()
 
         }

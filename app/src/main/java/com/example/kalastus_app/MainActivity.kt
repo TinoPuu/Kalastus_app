@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment, firstFragment)
             commit()
+
         }
 
         "btnFragment1.setOnClickListener{}"
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         btnKalaennatys.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.flFragment, secondFragment)
+
                 commit()
             }
         }
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         btnKalavale.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.flFragment, thirdFragment)
+
                 commit()
             }
         }

@@ -11,7 +11,7 @@
         android:layout_width="380dp"
         android:layout_height="215dp"
         android:layout_marginBottom="20dp"
-        android:text="TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE TÄSSÄ NÄKYISI KALASTUSVALHE "
+        android:text="Jake se vetäs Petosen lammesta 8 kilon muikun "
         app:layout_constraintBottom_toTopOf="@+id/btnKalavale"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -33,7 +33,7 @@
         android:layout_width="380dp"
         android:layout_height="215dp"
         android:layout_marginBottom="20dp"
-        android:text="TÄSSÄ NÄKYISI KALASTUS VITSI"
+        android:text = "Äiti mikä tuo on? Kysyi pikkuahven äitiahvenelta. Se on se Rapalan huora, isäsi lähti sen perään eikä ole sen jälkeen kotiin kuulunut"
         app:layout_constraintBottom_toTopOf="@+id/btnKalavitsi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

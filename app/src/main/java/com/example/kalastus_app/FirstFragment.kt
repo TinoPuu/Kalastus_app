@@ -20,6 +20,12 @@ class FirstFragment : Fragment() {
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.flFragment,fragment)?.commit()
         }
+        //tästä napista avautuu kalan lisäys kohta
+        val btnLisaakala : Button = view.findViewById(R.id.buttonLisääkala)
+        btnLisaakala.setOnClickListener {
+
+        }
+
       return view
     }
 

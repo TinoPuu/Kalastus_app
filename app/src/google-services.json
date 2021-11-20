@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "958624702695",
+    "firebase_url": "https://kalastusappi-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "kalastusappi",
+    "storage_bucket": "kalastusappi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958624702695:android:e4aa622972985fa3358242",
+        "android_client_info": {
+          "package_name": "com.example.kalastus_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958624702695-9a9fpvnhundfdp67onulr72t09tt0ld3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2JStCgHn9Kk2VnULDvc4z9Lh3OR3_ztQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958624702695-9a9fpvnhundfdp67onulr72t09tt0ld3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

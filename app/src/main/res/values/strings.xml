@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Kalastus_app</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_hauki">Hauki</string>
+    <string name="action_ahven">Ahven</string>
+    <string name="action_kuha">Kuha</string>
+
+    <string name="action_jigi">Jigi</string>
+    <string name="action_perho">Perho</string>
+    <string name="action_uistin">Uistin</string>
 </resources>

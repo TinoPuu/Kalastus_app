@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_hauki"
+        android:title="@string/action_hauki"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_ahven"
+        android:title="@string/action_ahven"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_kuha"
+        android:title="@string/action_kuha"
+        app:showAsAction="never"/>
+</menu>

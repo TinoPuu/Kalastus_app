@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_hauki"
         android:title="@string/action_hauki"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_ahven"
         android:title="@string/action_ahven"

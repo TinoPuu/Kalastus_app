@@ -4,8 +4,20 @@
     <string name="action_hauki">Hauki</string>
     <string name="action_ahven">Ahven</string>
     <string name="action_kuha">Kuha</string>
+    <string name="action_siika">Siika</string>
+    <string name="action_sayne">Sayne</string>
+    <string name="action_aki">Aki</string>
+
 
     <string name="action_jigi">Jigi</string>
     <string name="action_perho">Perho</string>
     <string name="action_uistin">Uistin</string>
+    <string name="action_verkko">Verkko</string>
+    <string name="action_pilkki">Pilkki</string>
+
+    <string name="action_lampi">Lampi</string>
+    <string name="action_järvi">Järvi</string>
+    <string name="action_joki">Joki</string>
+
+
 </resources>

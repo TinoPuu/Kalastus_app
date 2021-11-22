@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_joki"
+        android:title="@string/action_joki" />
+    <item
+        android:id="@+id/action_järvi"
+        android:title="@string/action_järvi" />
+    <item
+        android:id="@+id/action_lampi"
+        android:title="@string/action_lampi" />
+</menu>

@@ -13,4 +13,10 @@
         android:id="@+id/action_uistin"
         android:title="@string/action_uistin"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_verkko"
+        android:title="@string/action_verkko" />
+    <item
+        android:id="@+id/action_pilkki"
+        android:title="@string/action_pilkki" />
 </menu>

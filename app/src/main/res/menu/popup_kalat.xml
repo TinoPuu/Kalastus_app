@@ -13,4 +13,13 @@
         android:id="@+id/action_kuha"
         android:title="@string/action_kuha"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_siika"
+        android:title="@string/action_siika" />
+    <item
+        android:id="@+id/action_sayne"
+        android:title="@string/action_sayne" />
+    <item
+        android:id="@+id/action_aki"
+        android:title="@string/action_aki" />
 </menu>

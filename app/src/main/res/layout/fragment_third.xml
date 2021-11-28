@@ -12,7 +12,6 @@
         android:layout_width="380dp"
         android:layout_height="215dp"
         android:layout_marginBottom="12dp"
-        android:background="@color/cardview_shadow_end_color"
         android:text="Jake se vetäs Petosen lammesta 8 kilon muikun "
         app:layout_constraintBottom_toTopOf="@+id/btnKalavale"
         app:layout_constraintEnd_toEndOf="parent"

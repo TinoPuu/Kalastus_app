@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_end_color"
     tools:context=".ThirdFragment">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="380dp"
         android:layout_height="215dp"
         android:layout_marginBottom="12dp"
+        android:background="@color/cardview_shadow_end_color"
         android:text="Jake se vetäs Petosen lammesta 8 kilon muikun "
         app:layout_constraintBottom_toTopOf="@+id/btnKalavale"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,9 +37,9 @@
         android:layout_marginBottom="16dp"
         android:fadeScrollbars="false"
         android:isScrollContainer="false"
-        android:scrollbars = "vertical"
         android:scrollbarAlwaysDrawHorizontalTrack="false"
         android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbars="vertical"
         android:text="Äiti mikä tuo on? Kysyi pikkuahven äitiahvenelta. Se on se Rapalan huora, isäsi lähti sen perään eikä ole sen jälkeen kotiin kuulunut"
         app:layout_constraintBottom_toTopOf="@+id/btnKalavitsi"
         app:layout_constraintEnd_toEndOf="parent"

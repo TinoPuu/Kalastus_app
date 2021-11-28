@@ -19,8 +19,8 @@ import org.w3c.dom.Text
 import java.util.*
 import kotlin.random.Random
 import android.text.method.ScrollingMovementMethod
-
-
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.DialogFragment
 
 
 class ThirdFragment : Fragment() {
@@ -57,9 +57,11 @@ class ThirdFragment : Fragment() {
         }
 
         btnTakaisin.setOnClickListener {
+
             val fragment = FourthFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.flFragment,fragment)?.commit()
+
         }
         return view
     }

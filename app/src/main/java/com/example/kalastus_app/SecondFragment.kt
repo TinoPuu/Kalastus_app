@@ -44,7 +44,6 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
             val fragment = FourthFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.flFragment,fragment)?.commit()
-
         }
         val btnValitseKala : Button = view.findViewById(R.id.btnKalavalinta)
         btnValitseKala.setOnClickListener {

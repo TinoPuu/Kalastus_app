@@ -1,19 +1,24 @@
 package com.example.kalastus_app
 
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.PopupMenu
-import androidx.core.view.isVisible
+import android.widget.*
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_fourth.*
+import java.util.*
 
-class FirstFragment : Fragment() {
+class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
+    var day= 0
+    var month = 0
+    var year = 0
 
+    var savedDay= 0
+    var savedMonth = 0
+    var savedYear = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,6 +31,17 @@ class FirstFragment : Fragment() {
             val fragment = FourthFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.flFragment,fragment)?.commit()
+        }
+        val tvDate : TextView = view.findViewById(R.id.tvDate)
+        tvDate.setOnClickListener {
+
+            //"Päivämäärä" tekstiä klikkaamalla aukeaa kalenteri
+            getDateTimeCalendar()
+            DatePickerDialog(requireContext(), this, year, month, day).show()
+
+            //keskeneräinen, päivittää vasta kun kalenteri avataan uudelleen, korjattava jotenkin
+            tvDate.text = "$savedDay-$savedMonth-$savedYear"
+
         }
 
         val btnLisaakala : Button = view.findViewById(R.id.btnLisaakala)
@@ -98,6 +114,27 @@ class FirstFragment : Fragment() {
         val Paino : (EditText) = view.findViewById(R.id.Paino)
 
       return view
+    }
+
+    private fun getDateTimeCalendar() {
+        //Haetaan kalenterista päivämäärä
+        val cal = Calendar.getInstance()
+        day = cal.get(Calendar.DAY_OF_MONTH)
+        month = cal.get(Calendar.MONTH)
+        year = cal.get(Calendar.YEAR)
+    }
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
+
+        // Otetaan päivämäärä kalenterista talteen
+        savedDay = day
+        savedMonth = month
+        savedYear = year
+
+
+
+        Log.d("zef","@$savedDay")
+        Log.d("zef","@$savedMonth")
+        Log.d("zef","@$savedYear")
     }
 
 

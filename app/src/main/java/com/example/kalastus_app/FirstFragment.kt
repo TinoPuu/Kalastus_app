@@ -1,6 +1,8 @@
 package com.example.kalastus_app
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
@@ -19,20 +23,59 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     var savedDay= 0
     var savedMonth = 0
     var savedYear = 0
+
+    @SuppressLint("CutPasteId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
 
     ): View? {
+        val db = Firebase.firestore
         val view = inflater.inflate(R.layout.fragment_first, container,false)
+        val btnLisää : Button = view.findViewById(R.id.btnLisää) //save
+        val btnTapa : Button = view.findViewById(R.id.btnTapa) // kalastustapa
+        val Paikka : EditText = view.findViewById(R.id.Paikka) //lokaatio
+        val tvDate : TextView = view.findViewById(R.id.tvDate) //pvm
+        val Paino : EditText = view.findViewById(R.id.Paino) // kalan paino
+        val btnLisaakala : Button = view.findViewById(R.id.btnLisaakala) //uusi kala
+        val nimi : EditText = view.findViewById(R.id.nimi) // kalastajan nimi
+
+
+        btnLisää.setOnClickListener {
+            var Kala = btnLisaakala.text.toString()
+            var Paino= Paino.text.toString()
+            var Tapa = btnTapa.text.toString()
+            var Paikka = Paikka.text.toString()
+            var Aika = tvDate.text.toString()
+            var Nimi = nimi.text.toString()
+
+            val Tiedot: MutableMap<String, Any> = HashMap()
+
+            Tiedot["Kala"] = Kala
+            Tiedot["Paino"] = Paino
+            Tiedot["Tapa"] = Tapa
+            Tiedot["Paikka"] = Paikka
+            Tiedot["Aika"] = Aika
+            Tiedot["Kalastaja"] = Nimi
+
+            db.collection("Kalantiedot")
+                .add(Tiedot)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(
+                        TAG,
+                        "DocumentSnapshot added with ID: " + documentReference.id
+                    )
+                }
+                .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
+        }
+
         val btnTakaisin : Button = view.findViewById(R.id.buttonTakaisinKalavalikko)
         btnTakaisin.setOnClickListener {
             val fragment = FourthFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.flFragment,fragment)?.commit()
         }
-        val tvDate : TextView = view.findViewById(R.id.tvDate)
         tvDate.setOnClickListener {
 
             //"Päivämäärä" tekstiä klikkaamalla aukeaa kalenteri
@@ -44,7 +87,6 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
         }
 
-        val btnLisaakala : Button = view.findViewById(R.id.btnLisaakala)
         btnLisaakala.setOnClickListener {
             val popupMenu: PopupMenu = PopupMenu(requireContext(),btnLisaakala)
             popupMenu.menuInflater.inflate(R.menu.popup_kalat,popupMenu.menu)
@@ -68,7 +110,6 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             })
             popupMenu.show()
         }
-        val btnTapa : Button = view.findViewById(R.id.btnTapa)
         btnTapa.setOnClickListener {
             val popupMenu: PopupMenu = PopupMenu(requireContext(),btnTapa)
             popupMenu.menuInflater.inflate(R.menu.popup_kalastustavat,popupMenu.menu)
@@ -91,8 +132,8 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             })
             popupMenu.show()
         }
-        val btnPaikka : Button = view.findViewById(R.id.btnPaikka)
-        btnPaikka.setOnClickListener {
+        /*
+        Paikka.setOnClickListener {
             val popupMenu: PopupMenu = PopupMenu(requireContext(),btnPaikka)
             popupMenu.menuInflater.inflate(R.menu.popup_kalastuspaikka,popupMenu.menu)
             popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
@@ -111,10 +152,12 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             })
             popupMenu.show()
         }
-        val Paino : (EditText) = view.findViewById(R.id.Paino)
+        */
 
       return view
     }
+
+
 
     private fun getDateTimeCalendar() {
         //Haetaan kalenterista päivämäärä
@@ -139,3 +182,6 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
 
 }
+
+
+

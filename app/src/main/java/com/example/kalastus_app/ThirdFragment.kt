@@ -19,6 +19,7 @@ import org.w3c.dom.Text
 import java.util.*
 import kotlin.random.Random
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.DialogFragment
 
@@ -40,7 +41,6 @@ class ThirdFragment : Fragment() {
 
         btnKalavitsi.setOnClickListener{
             val number = Random.nextInt(1,11)
-            d("jpk",number.toString())
             db.collection("Kalavitsit").document(number.toString())
                 .get()
 
@@ -50,10 +50,37 @@ class ThirdFragment : Fragment() {
 
                 }
                 .addOnFailureListener { exception ->
-                    tvKalavitsi.text = "error"
+
 
                 }
             tvKalavitsi.setMovementMethod(ScrollingMovementMethod())
+        }
+
+        btnKalavale.setOnClickListener{
+
+            db.collection("Kalantiedot")
+                .get()
+                .addOnSuccessListener { result ->
+
+                    val nimi = ArrayList<String>()
+                    val kala = ArrayList<String>()
+                    val paikka = ArrayList<String>()
+                    val tapa = ArrayList<String>()
+                    for (document in result) {
+                        nimi.add("${document["Kalastaja"]}")
+                        kala.add("${document["Kala"]}")
+                        paikka.add("${document["Paikka"]}")
+                        tapa.add("${document["Tapa"]}")
+                    }
+                    val montako = nimi.size
+                    val number = Random.nextInt(1,montako)
+                    val kilot = Random.nextInt(1,25)
+                    tvKalavale.text= nimi.get(number)+" sai muuten " + kilot.toString() + "kilon " + kala.get(number) + "n " + paikka.get(number) + "lta " + tapa.get(number)+ "lla"
+                }
+                .addOnFailureListener { exception ->
+                    tvKalavale.text = "error"
+                }
+
         }
 
         btnTakaisin.setOnClickListener {

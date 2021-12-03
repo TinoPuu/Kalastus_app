@@ -50,8 +50,7 @@ class ThirdFragment : Fragment() {
 
                 }
                 .addOnFailureListener { exception ->
-
-
+                    tvKalavitsi.text = "error"
                 }
             tvKalavitsi.setMovementMethod(ScrollingMovementMethod())
         }

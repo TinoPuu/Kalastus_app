@@ -8,12 +8,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.kalastus_app.models.Kalantiedot
+import com.example.kalastus_app.models.KalantiedotAdapter
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.auth.FirebaseAuthCredentialsProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_second.*
 
 import java.util.*
+import kotlin.random.Random
 
 
 class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
 
+    private lateinit var db : FirebaseFirestore
+    private lateinit var ennatykset: MutableList<Kalantiedot>
+    private lateinit var adapter : KalantiedotAdapter
     var day= 0
     var month = 0
     var year = 0
@@ -26,8 +40,26 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+
+        db = FirebaseFirestore.getInstance()
+
+
+        val kalatiedotReference = db.collection("Kalantiedot")
+                /*
+            .whereEqualTo("Kala" ,"${btnKalavalinta.text.toString()}")
+            .whereEqualTo("Aika", "${tvDate.text.toString()}")
+            .whereEqualTo("Tapa", "${btnKalastustapa.text.toString()}")
+*/
+        /*val kalaQuery = kalatiedotReference.whereEqualTo("Kala" ,btnKalavalinta.text)
+        val aikaQuery = kalatiedotReference.whereEqualTo("Aika", tvDate.text)
+        val kalastustapaQuery = kalatiedotReference.whereEqualTo("Tapa", btnKalastustapa.text)
+*/
         val view = inflater.inflate(R.layout.fragment_second, container,false)
-        val tvDate : TextView= view.findViewById(R.id.tvDate)
+        val tvDate : TextView = view.findViewById(R.id.tvDate)
+
+
         tvDate.setOnClickListener {
 
             //"Päivämäärä" tekstiä klikkaamalla aukeaa kalenteri
@@ -86,8 +118,38 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
             popupMenu.show()
         }
 
+        val btnHae : Button = view.findViewById(R.id.btnHae)
+        btnHae.setOnClickListener {
+
+            kalatiedotReference.addSnapshotListener { snapshot, exception ->
+                if (exception != null || snapshot == null) {
+                    Log.d("zef", "Exception when querying", exception)
+                    return@addSnapshotListener
+                }
+                val kalaList = snapshot.toObjects(Kalantiedot::class.java)
+
+                for (tiedot in kalaList) {
+                    Log.d("zef", "${tiedot}")
+
+
+                }
+                ennatykset = mutableListOf()
+                //Recycleview adapter
+                adapter = KalantiedotAdapter(requireContext(), ennatykset)
+
+                rvEnnatykset.adapter = adapter
+                rvEnnatykset.layoutManager = LinearLayoutManager(requireContext())
+
+                ennatykset.clear()
+                ennatykset.addAll(kalaList)
+                adapter.notifyDataSetChanged()
+
+            }
+        }
+
      return view
     }
+
 
 
 

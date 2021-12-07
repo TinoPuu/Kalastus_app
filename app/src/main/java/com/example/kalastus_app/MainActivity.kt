@@ -26,26 +26,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
         val sharedPrefsEdit: SharedPreferences.Editor = appSettingPrefs.edit()
-        val isNightModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
-
-        button2.setOnClickListener{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            /**if (isNightModeOn) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                sharedPrefsEdit.putBoolean("NightMode",false)
-                sharedPrefsEdit.apply()
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                sharedPrefsEdit.putBoolean("NightMode",true)
-                sharedPrefsEdit.apply()
-            }**/
-
-        }
-
-        supportFragmentManager.beginTransaction().replace(R.id.flFragment,FourthFragment()).commit()
+        val isNightModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", true)
+supportFragmentManager.beginTransaction().replace(R.id.flFragment,FourthFragment()).commit()
 
 
        /*btg_theme.addOnButtonCheckedListener(object : MaterialButtonToggleGroup.OnButtonCheckedListener {

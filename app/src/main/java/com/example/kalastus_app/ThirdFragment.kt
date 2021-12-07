@@ -72,9 +72,12 @@ class ThirdFragment : Fragment() {
                         tapa.add("${document["Tapa"]}")
                     }
                     val montako = nimi.size
-                    val number = Random.nextInt(1,montako)
+                    val number1 = Random.nextInt(1,montako)
+                    val number2 = Random.nextInt(1,montako)
+                    val number3 = Random.nextInt(1,montako)
+                    val number4 = Random.nextInt(1,montako)
                     val kilot = Random.nextInt(1,25)
-                    tvKalavale.text= nimi.get(number)+" sai muuten " + kilot.toString() + "kilon " + kala.get(number) + "n " + paikka.get(number) + "lta " + tapa.get(number)+ "lla"
+                    tvKalavale.text= nimi.get(number1)+" sai muuten " + kilot.toString() + "kilon " + kala.get(number2) + "n " + paikka.get(number3) + "lta " + tapa.get(number4)+ "lla"
                 }
                 .addOnFailureListener { exception ->
                     tvKalavale.text = "error"

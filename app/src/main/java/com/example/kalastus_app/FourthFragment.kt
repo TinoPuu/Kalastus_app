@@ -1,6 +1,4 @@
 package com.example.kalastus_app
-
-
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isVisible
 import com.google.android.material.button.MaterialButtonToggleGroup
 import kotlinx.android.synthetic.main.fragment_fourth.*
+import android.content.SharedPreferences
 
 class FourthFragment : Fragment(R.layout.fragment_fourth) {
 
@@ -54,13 +53,12 @@ class FourthFragment : Fragment(R.layout.fragment_fourth) {
         }
 
         buttonDark.setOnClickListener {
-            val theme = AppCompatDelegate.MODE_NIGHT_YES
-            AppCompatDelegate.setDefaultNightMode(theme)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
         }
 
         buttonLight.setOnClickListener {
-            val theme = AppCompatDelegate.MODE_NIGHT_NO
-            AppCompatDelegate.setDefaultNightMode(theme)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
         return view

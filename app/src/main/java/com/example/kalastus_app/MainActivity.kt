@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_fourth.buttonKalaennatys
 import kotlinx.android.synthetic.main.fragment_fourth.buttonKalavale
 import kotlinx.android.synthetic.main.fragment_fourth.buttonKalavalikko
 import android.content.SharedPreferences
+import java.util.ArrayList
+import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,15 +28,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
+        val sharedPrefsEdit: SharedPreferences.Editor = appSettingPrefs.edit()
         val isNightModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
 
-            if (isNightModeOn) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            } else {
+        button2.setOnClickListener{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            /**if (isNightModeOn) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                sharedPrefsEdit.putBoolean("NightMode",false)
+                sharedPrefsEdit.apply()
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                sharedPrefsEdit.putBoolean("NightMode",true)
+                sharedPrefsEdit.apply()
+            }**/
 
-            }
+        }
+
         supportFragmentManager.beginTransaction().replace(R.id.flFragment,FourthFragment()).commit()
+
 
        /*btg_theme.addOnButtonCheckedListener(object : MaterialButtonToggleGroup.OnButtonCheckedListener {
             override fun onButtonChecked(

@@ -22,8 +22,6 @@ class FourthFragment : Fragment(R.layout.fragment_fourth) {
         savedInstanceState: Bundle?
     ): View? {
 
-
-
         val view = inflater.inflate(R.layout.fragment_fourth, container, false)
 
         val buttonKala1 : Button = view.findViewById(R.id.buttonKalavalikko)

@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_fourth.btg_theme
 import kotlinx.android.synthetic.main.fragment_fourth.buttonKalaennatys
 import kotlinx.android.synthetic.main.fragment_fourth.buttonKalavale
 import kotlinx.android.synthetic.main.fragment_fourth.buttonKalavalikko
+import android.content.SharedPreferences
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +22,18 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
+        val isNightModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
+
+            if (isNightModeOn) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+            }
         supportFragmentManager.beginTransaction().replace(R.id.flFragment,FourthFragment()).commit()
 
        /*btg_theme.addOnButtonCheckedListener(object : MaterialButtonToggleGroup.OnButtonCheckedListener {

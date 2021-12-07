@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Kalastus_app" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">#50483d8b</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,6 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:background">@color/white</item>
+        <item name="android:background">#50add8e6</item>
+        <item name="background">@drawable/mainmenu</item>
+
     </style>
 </resources>

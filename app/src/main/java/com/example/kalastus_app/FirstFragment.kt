@@ -102,8 +102,20 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                         btnLisaakala.text = "Siika"
                     R.id.action_sayne ->
                         btnLisaakala.text = "Sayne"
-                    R.id.action_aki ->
-                        btnLisaakala.text = "Aki"
+                    R.id.action_kiiski ->
+                        btnLisaakala.text = "Kiiski"
+                    R.id.action_lahna ->
+                        btnLisaakala.text = "Lahna"
+                    R.id.action_made ->
+                        btnLisaakala.text = "Made"
+                    R.id.action_muikku ->
+                        btnLisaakala.text = "Muikku"
+                    R.id.action_silakka ->
+                        btnLisaakala.text = "Silakka"
+                    R.id.action_särki ->
+                        btnLisaakala.text = "Särki"
+                    R.id.action_taimen ->
+                        btnLisaakala.text = "Taimen"
                 }
 
                 true

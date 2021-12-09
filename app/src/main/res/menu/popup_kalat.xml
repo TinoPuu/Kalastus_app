@@ -20,6 +20,25 @@
         android:id="@+id/action_sayne"
         android:title="@string/action_sayne" />
     <item
-        android:id="@+id/action_aki"
-        android:title="@string/action_aki" />
+        android:id="@+id/action_kiiski"
+        android:title="Kiiski"/>
+    <item
+        android:id="@+id/action_lahna"
+        android:title="Lahna" />
+    <item
+        android:id="@+id/action_made"
+        android:title="Made" />
+    <item
+        android:id="@+id/action_muikku"
+        android:title="Muikku" />
+    <item
+        android:id="@+id/action_silakka"
+        android:title="Silakka" />
+    <item
+        android:id="@+id/action_särki"
+        android:title="Särki" />
+    <item
+        android:id="@+id/action_taimen"
+        android:title="Taimen" />
+
 </menu>

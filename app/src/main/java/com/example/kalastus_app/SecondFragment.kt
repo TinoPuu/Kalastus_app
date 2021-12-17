@@ -31,10 +31,13 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
     var day= 0
     var month = 0
     var year = 0
-
+    var kala = ""
+    var kalastustapa = ""
+    var pvm = ""
     var savedDay= 0
     var savedMonth = 0
     var savedYear = 0
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,15 +46,8 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
 
 
 
-        db = FirebaseFirestore.getInstance()
 
 
-        val kalatiedotReference = db.collection("Kalantiedot")
-                /*
-            .whereEqualTo("Kala" ,"${btnKalavalinta.text.toString()}")
-            .whereEqualTo("Aika", "${tvDate.text.toString()}")
-            .whereEqualTo("Tapa", "${btnKalastustapa.text.toString()}")
-*/
         /*val kalaQuery = kalatiedotReference.whereEqualTo("Kala" ,btnKalavalinta.text)
         val aikaQuery = kalatiedotReference.whereEqualTo("Aika", tvDate.text)
         val kalastustapaQuery = kalatiedotReference.whereEqualTo("Tapa", btnKalastustapa.text)
@@ -65,9 +61,6 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
             //"Päivämäärä" tekstiä klikkaamalla aukeaa kalenteri
             getDateTimeCalendar()
             DatePickerDialog(requireContext(), this, year, month, day).show()
-
-            //keskeneräinen, päivittää vasta kun kalenteri avataan uudelleen, korjattava jotenkin
-            tvDate.text = "$savedDay-$savedMonth-$savedYear"
 
         }
 
@@ -90,9 +83,28 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
                         btnValitseKala.text = "Hauki"
                     R.id.action_kuha ->
                         btnValitseKala.text = "Kuha"
+                    R.id.action_siika ->
+                        btnValitseKala.text = "Siika"
+                    R.id.action_sayne ->
+                        btnValitseKala.text = "Sayne"
+                    R.id.action_kiiski ->
+                        btnValitseKala.text = "Kiiski"
+                    R.id.action_lahna ->
+                        btnValitseKala.text = "Lahna"
+                    R.id.action_made ->
+                        btnValitseKala.text = "Made"
+                    R.id.action_muikku ->
+                        btnValitseKala.text = "Muikku"
+                    R.id.action_silakka ->
+                        btnValitseKala.text = "Silakka"
+                    R.id.action_särki ->
+                        btnValitseKala.text = "Särki"
+                    R.id.action_taimen ->
+                        btnValitseKala.text = "Taimen"
 
                 }
-
+                kala = "${btnValitseKala.text}"
+                Log.d("zef", "$kala")
                 true
             })
             popupMenu.show()
@@ -110,9 +122,13 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
                         btnKalastustapa.text = "Perho"
                     R.id.action_uistin ->
                         btnKalastustapa.text = "Uistin"
-
+                    R.id.action_verkko ->
+                        btnKalastustapa.text = "Verkko"
+                    R.id.action_pilkki ->
+                        btnKalastustapa.text = "Pilkki"
                 }
-
+                kalastustapa = "${btnKalastustapa.text}"
+                Log.d("zef", "$kalastustapa")
                 true
             })
             popupMenu.show()
@@ -120,6 +136,13 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
 
         val btnHae : Button = view.findViewById(R.id.btnHae)
         btnHae.setOnClickListener {
+            db = FirebaseFirestore.getInstance()
+
+
+            val kalatiedotReference = db.collection("Kalantiedot")
+                .whereEqualTo("Aika", "$pvm")
+                .whereEqualTo("Kala", "$kala")
+                .whereEqualTo("Tapa", "$kalastustapa")
 
             kalatiedotReference.addSnapshotListener { snapshot, exception ->
                 if (exception != null || snapshot == null) {
@@ -134,6 +157,8 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
 
                 }
                 ennatykset = mutableListOf()
+
+
                 //Recycleview adapter
                 adapter = KalantiedotAdapter(requireContext(), ennatykset)
 
@@ -170,8 +195,8 @@ class SecondFragment : Fragment(), DatePickerDialog.OnDateSetListener{
         savedMonth = month
         savedYear = year
 
-
-
+        pvm = ("$savedDay-$savedMonth-$savedYear")
+        tvDate.text = (pvm)
         Log.d("zef","@$savedDay")
         Log.d("zef","@$savedMonth")
         Log.d("zef","@$savedYear")

@@ -12,6 +12,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_second.*
 import java.util.*
 
 class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
@@ -19,7 +20,7 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     var day= 0
     var month = 0
     var year = 0
-
+    var pvm = ""
     var savedDay= 0
     var savedMonth = 0
     var savedYear = 0
@@ -185,7 +186,8 @@ class FirstFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         savedMonth = month
         savedYear = year
 
-
+        pvm = ("$savedDay-$savedMonth-$savedYear")
+        tvDate.text = (pvm)
 
         Log.d("zef","@$savedDay")
         Log.d("zef","@$savedMonth")
